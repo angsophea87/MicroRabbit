@@ -1,3 +1,5 @@
+using MicroRabbit.Mvc.Configuration;
+using MicroRabbit.Mvc.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +26,14 @@ namespace MicroRabbit.Mvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            // Configure options.
+            services.Configure<ApisSettings>(Configuration.GetSection(ApisSettings.Name));
+            // Configure services.
+            services.AddHttpClient<ITransferService, TransferService>(/*config => {
+                var bankingApiUri = Configuration.GetSection(ApisSettings.Name).GetValue<string>(nameof(ApisSettings.Banking));
+                config.BaseAddress = new Uri(bankingApiUri);
+            }*/)
+            .SetHandlerLifetime(TimeSpan.FromHours(1));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

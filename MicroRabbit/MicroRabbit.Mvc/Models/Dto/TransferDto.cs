@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace MicroRabbit.Transfer.Domain.Models
+namespace MicroRabbit.Mvc.Models.Dto
 {
-    public class TransferLog
+    public class TransferDto
     {
-        public int Id { get; set; }
         public int FromAccount { get; set; }
         public int ToAccount { get; set; }
         public decimal TransferAmount { get; set; }
-        public DateTimeOffset Timestamp { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MicroRabbit.Transfer.Data.Migrations
 {
@@ -14,7 +15,8 @@ namespace MicroRabbit.Transfer.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FromAccount = table.Column<int>(type: "int", nullable: false),
                     ToAccount = table.Column<int>(type: "int", nullable: false),
-                    TransferAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    TransferAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Timestamp = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                 },
                 constraints: table =>
                 {

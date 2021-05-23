@@ -22,7 +22,7 @@ namespace MicroRabbit.Transfer.Domain.EventHandlers
         {
             _transferRepository.Add(new TransferLog()
             {
-                /*Timestamp = DateTimeOffset.UtcNow,*/
+                Timestamp = DateTimeOffset.Now,
                 FromAccount = @event.From,
                 ToAccount = @event.To,
                 TransferAmount = @event.Amount

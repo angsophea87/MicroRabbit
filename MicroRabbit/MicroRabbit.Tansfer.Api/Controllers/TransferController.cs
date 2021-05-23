@@ -1,10 +1,12 @@
 ﻿using MicroRabbit.Transfer.Application.Interfaces;
 using MicroRabbit.Transfer.Domain.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Threading.Tasks;
 
 namespace MicroRabbit.Tansfer.Api.Controllers
